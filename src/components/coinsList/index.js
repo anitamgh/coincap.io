@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import {addZeros, separateWithComma, shortening} from "../../utils/fixNum";
 import LoadingAnimation from "../loadingAnimation";
+import { findIndex } from "lodash";
 
 export default function CoinsList(){
 
@@ -26,6 +27,63 @@ export default function CoinsList(){
         const response = await api.get('/assets' ,{params: { limit:10 , offset: offset}})
         setList(current => [...current , ...response.data.data])
     }
+    function sortRank(){
+        if(list[0].rank === '1'){
+        setList([...list].sort(({rank : a} , {rank : b}) => b-a))
+        } else if(list[0].rank === String(list.length)){
+            setList([...list].sort(({rank : a} , {rank : b}) => a-b))        
+        } else if(list[0].rank !== String(list.length) && list[0].rank !== '1'){
+            setList([...list].sort(({rank : a} , {rank : b}) => a-b))
+        }
+        }  
+    function sortName(){
+        if(list[0].rank === '1'){
+        setList([...list].sort((a, b) =>
+        a.name > b.name ? 1 : -1,
+        ))
+        }
+        else if(list[0].rank !== '1'){
+            setList([...list].sort((a, b) =>
+            a.name > b.name ? -1 : 1,
+            ))
+        }
+    }
+    function sortPrice(){
+        if(list[0].rank !== '1'){
+            setList([...list].sort(({priceUsd : a} , {priceUsd : b}) => a-b))
+        } else{
+            setList([...list].sort(({priceUsd : a} , {priceUsd : b}) => b-a))           
+        }
+    }
+    function sortVWAR(){
+        if(list[0].rank !== '1'){
+            setList([...list].sort(({vwap24Hr : a} , {vwap24Hr : b}) => a-b))
+        } else{
+            setList([...list].sort(({vwap24Hr : a} , {vwap24Hr : b}) => b-a))           
+        }
+    }
+    function sortChangePercent(){
+        if(list[0].rank !== '1'){
+            setList([...list].sort(({changePercent24Hr : a} , {changePercent24Hr : b}) => a-b))
+        } else{
+            setList([...list].sort(({changePercent24Hr : a} , {changePercent24Hr : b}) => b-a))           
+        }
+    }
+    function sortSupply(){
+        if(list[0].rank !== '1'){
+            setList([...list].sort(({supply : a} , {supply : b}) => a-b))
+        } else{
+            setList([...list].sort(({supply : a} , {supply : b}) => b-a))           
+        }
+    }
+    function sortVolume(){
+        if(list[0].rank !== '1'){
+            setList([...list].sort(({volumeUsd24Hr : a} , {volumeUsd24Hr : b}) => a-b))
+        } else{
+            setList([...list].sort(({volumeUsd24Hr : a} , {volumeUsd24Hr : b}) => b-a))           
+        }
+    }
+
     function renderRows(){
         return list.map(function({id, rank, name, symbol, priceUsd, marketCapUsd, vwap24Hr, supply, volumeUsd24Hr, changePercent24Hr}){
             return(
@@ -59,14 +117,14 @@ export default function CoinsList(){
                     <table>
                         <thead>
                             <tr>
-                                <th>Rank</th>
-                                <th>Name</th>
-                                <th>price</th>
-                                <th>Market Cap</th>
-                                <th>VWAR (24Hr)</th>
-                                <th>Supply</th>
-                                <th>Volume (24Hr)</th>
-                                <th>Change(24Hr)</th>
+                                <th onClick={sortRank}>Rank</th>
+                                <th onClick={sortName}>Name</th>
+                                <th onClick={sortPrice}>price</th>
+                                <th onClick={sortRank}>Market Cap</th>
+                                <th onClick={sortVWAR}>VWAR (24Hr)</th>
+                                <th onClick={sortSupply}>Supply</th>
+                                <th onClick={sortVolume}>Volume (24Hr)</th>
+                                <th onClick={sortChangePercent}>Change(24Hr)</th>
                             </tr> 
                         </thead>
                         <tbody>

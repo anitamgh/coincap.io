@@ -1,13 +1,10 @@
 import styled from "styled-components";
+
 const Style = styled.div `
-    margin-top:-20vh;
-    text-align: center;
-    div.loadingDiv{
-        min-height:250px;
-    }
-    
+background:rgb(236, 239, 241);
+padding:30px 0;
+text-align:center;
     table{
-        margin:0 auto;
         width:100%;
         background-color:#fff;
         border-collapse: collapse;
@@ -17,6 +14,7 @@ const Style = styled.div `
         margin-bottom:40px;
         text-align: left;
         overflow:hidden;
+        margin-top:-25vh;
         tr{
             border-bottom: 1px solid rgba(34,36,38,0.1);
         }
@@ -27,20 +25,19 @@ const Style = styled.div `
                 font-size:14px;
                 font-weight:200;
                 color:rgba(0, 0, 0, 0.6) !important;
-                cursor:pointer;
                 text-align:right;
+                &:nth-child(1){
+                    text-align:center;
+                }
                 &:nth-child(2){
                     text-align:left;
-                }
-                &:hover{
-                    color:#000 !important;
                 }
             }
         }
         tbody{
             tr{
                 td{
-                    padding:0 20px;
+                    padding:20px;
                     font-size:14px;
                     text-align:right;
                     img{
@@ -50,9 +47,7 @@ const Style = styled.div `
                         text-align:center;
                     }
                     &:nth-child(2){
-                        display:flex;
                         align-items:center;
-                        gap:10px;
                         text-align:left;
                         a{
                            h3{
@@ -73,6 +68,17 @@ const Style = styled.div `
                             }
                         }
                     }
+                    &:last-child{
+                        &:after{
+                            content:"++";
+                            background-color:rgb(24, 198, 131);
+                            width:15px;
+                            height:15px;
+                            margin: 0 auto;
+                            border-radius:50%;
+                            color:rgb(24, 198, 131)
+                        }
+                    }
                 }
             }
         }
@@ -91,20 +97,6 @@ const Style = styled.div `
             transform:translateY(-5px)
         }
     }
+`;
 
-    @media screen and (max-width:1100px){
-        table{
-            td:nth-child(5) , th:nth-child(5) , td:nth-child(6) , th:nth-child(6){
-                display:none;
-            }
-        }
-    }
-    @media screen and (max-width:850px){
-        table{
-            td:nth-child(1) , th:nth-child(1) , td:nth-child(4) , th:nth-child(4){
-                display:none;
-            } 
-        }
-    }
-`
 export default Style;

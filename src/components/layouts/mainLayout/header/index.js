@@ -43,10 +43,10 @@ export default function Header(){
                         <Link to="/">
                             <div>Coins</div>
                         </Link>
-                        <Link to="#">
+                        <Link to="/exchanges">
                             <div>Exchanges</div>
                         </Link>
-                        <Link to="#">
+                        <Link to="/swap">
                             <div>Swap</div>
                         </Link>
                     </div>

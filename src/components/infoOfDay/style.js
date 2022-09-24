@@ -3,10 +3,11 @@ import styled from "styled-components";
 const Style = styled.div `
     display:flex;
     width:70%;
+    align-items:center;
     justify-content:space-between;
     .left{
         display:flex;
-        width:50%;
+        width:35%;
         gap:20px;
         align-items:center;
         .col{
@@ -23,10 +24,22 @@ const Style = styled.div `
     }
     .right{
         display:flex;
-        width:50%;
+        width:65%;
         justify-content:space-around;
-        h2{
-            color:gray;
+        .col{
+            .box{
+                display:flex;
+                gap:5px;
+                align-items:flex-start;
+                h2{
+                    color:gray;
+                    margin:0 0 20px 0;
+                }
+                span{
+                    font-size:16px;
+                    font-weight:bold
+                }
+            }
         }
     }
 `;

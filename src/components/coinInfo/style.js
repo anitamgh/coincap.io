@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Style = styled.div `
-margin-bottom:50px;
     .coinInfoHeader{
         background-image:linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
         color:#fff;
@@ -104,8 +103,16 @@ margin-bottom:50px;
     .heroSection{
         background:#fff;
         color:#000;
+        .flexWrapper{
+            display:flex;
+        }
     }
 
+    .exchangeTable{
+        background-color:rgb(236, 239, 241);
+        color:#000;
+        padding:35px 0 70px 0;
+    }
     @media screen and (max-width:1140px){
         .container{
             margin:0 20px;
