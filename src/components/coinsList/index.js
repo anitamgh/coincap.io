@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import {addZeros, separateWithComma, shortening} from "../../utils/fixNum";
 import LoadingAnimation from "../loadingAnimation";
-import { findIndex } from "lodash";
 
 export default function CoinsList(){
 

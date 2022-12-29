@@ -69,9 +69,7 @@ text-align:center;
                         }
                     }
                     &:last-child{
-                        &:after{
-                            content:"++";
-                            background-color:rgb(24, 198, 131);
+                        div{
                             width:15px;
                             height:15px;
                             margin: 0 auto;

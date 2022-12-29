@@ -7,25 +7,27 @@
     }
 
     export function shortening(num){
-        if (num !== 0){
-        if(num >= (10 ** 3) && num < (10 ** 5)){
-            const shortenedNum = num 
-            return shortenedNum.toFixed(2)
-        } else if(num >= (10 ** 5) && num < (10 ** 6)){
-            const shortenedNum = num / 10 ** 3 
-            return shortenedNum.toFixed(2) + "k"
-        } else if(num >= (10 ** 6) && num < (10 ** 9)){
-            const shortenedNum = num / 10 ** 6
-            return shortenedNum.toFixed(2) + "m"
-        } else if(num >= (10 ** 9) && num < (10 ** 12)){
-            const shortenedNum = num / 10 ** 9
-            return shortenedNum.toFixed(2) + "b"
-        } else if(num > (10 ** 12)){
-            const shortenedNum = num / 10 ** 12
-            return shortenedNum.toFixed(2) + "t"
-        } else{
-            return num
-        }
+        if (Number(num) > 0 && num !== null){
+            if(num >= (10 ** 3) && num < (10 ** 5)){
+                const shortenedNum = num 
+                return shortenedNum.toFixed(2)
+            } else if(num >= (10 ** 5) && num < (10 ** 6)){
+                const shortenedNum = num / 10 ** 3 
+                return shortenedNum.toFixed(2) + "k"
+            } else if(num >= (10 ** 6) && num < (10 ** 9)){
+                const shortenedNum = num / 10 ** 6
+                return shortenedNum.toFixed(2) + "m"
+            } else if(num >= (10 ** 9) && num < (10 ** 12)){
+                const shortenedNum = num / 10 ** 9
+                return shortenedNum.toFixed(2) + "b"
+            } else if(num > (10 ** 12)){
+                const shortenedNum = num / 10 ** 12
+                return shortenedNum.toFixed(2) + "t"
+            } else{
+                return num
+            }
+        } else if(num === null){
+            return null
         } else{
             return num
         }

@@ -14,7 +14,7 @@ ChartJS.register(
     Title , Tooltip, LineElement , Legend , CategoryScale , LinearScale , PointElement , Filler
 )
 
-export default function HistoryChart({change , coinData , history}){
+export default function HistoryChart({coinData , history}){
     const {name} = useParams()
     const [coinHistory , setCoinHistory] = useState([])
     const [loading , setLoading] = useState(false)
@@ -39,7 +39,7 @@ export default function HistoryChart({change , coinData , history}){
         labels:coinHistory.map(item => fixTime(item.time)),
         datasets:[
             {
-                label:"!",
+                label:"",
                 data:coinHistory.map(item => item.priceUsd),
                 backgroundColor:bgColor,
                 borderColor:borderColor,

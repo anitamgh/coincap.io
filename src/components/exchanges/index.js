@@ -23,10 +23,10 @@ export default function Exchanges(){
         setOffset(offset + 10)
         const response = await api.get('/exchanges' ,{params: { limit:10 , offset: offset}})
         setData(current => [...current , ...response.data.data])
-        console.log(response.data.data)
         if(response.data.data < 10){
             setShowButton(false)
         }
+        console.log([...data , ...response.data.data])
     }
 
     const renderRows = () => {
@@ -37,9 +37,9 @@ export default function Exchanges(){
                     <td>{name}</td>
                     <td>{tradingPairs}</td>
                     <td>BTC/USTD</td>
-                    {tradingPairs === '0' ? <td>-</td> : <td>{shortening(volumeUsd)}</td>}
+                    <td>{volumeUsd !== null ? `${shortening(volumeUsd)}` : "-"}</td>
                     {tradingPairs === '0' ? <td>-</td> : <td>{Number(percentTotalVolume).toFixed(2)}</td>}
-                    <td></td>
+                    <td><div style={{backgroundColor: tradingPairs === "0" ? 'rgb(244, 67, 54)' : 'rgb(24, 198, 131)'}}></div></td>
                 </tr>
             )
         })

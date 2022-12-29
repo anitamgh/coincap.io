@@ -4,6 +4,7 @@ import HomePage from './pages/homePage'
 import SwapPage from './pages/swapPage'
 import ExchangesPage from './pages/exchangesPage'
 import MethodologyPage from './pages/methodology'
+import RateCompare from './pages/rateCompare'
 export default function Router(){
     return(
         <BrowserRouter>
@@ -13,6 +14,7 @@ export default function Router(){
                 <Route element={<SwapPage/>} path="/swap"/>
                 <Route element={<ExchangesPage/>} path="/exchanges"/>
                 <Route element={<MethodologyPage/>} path="/methodology"/>
+                <Route element={<RateCompare/>} path="rate-compare"/>
             </Routes>
         </BrowserRouter>
     )

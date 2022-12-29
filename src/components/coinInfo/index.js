@@ -32,15 +32,17 @@ export default function CoinInfo({data}){
         setLoading(false)
         setShowInfo(true)
     }
-    function caretChange(){
+    const caretChange = () => {
         if(changePercent24Hr > 0){
-            console.log(caretIconEl)
-            // caretIconEl.classList.remove("negative")
-            // caretIconEl.classList.add("positive")
+            // console.log(caretIconEl)
+            caretIconEl.classList.remove("negative")
+            caretIconEl.classList.add("positive")
+        } else if(changePercent24Hr === 0){
+            caretIconEl.classList.add("none")
         } else{
-            console.log(caretIconEl)
-            // caretIconEl.classList.remove("positive")
-            // caretIconEl.classList.add("negative")
+            // console.log(caretIconEl)
+            caretIconEl.classList.remove("positive")
+            caretIconEl.classList.add("negative")
         }
     }
     
@@ -84,7 +86,7 @@ export default function CoinInfo({data}){
                     <div className="container">
                         {showInfo === false ? <Fragment/> :
                             <div className="flexWrapper">
-                                <HistoryChart history={historyData} coinData={data} change={changePercent24Hr}/>
+                                <HistoryChart history={historyData} coinData={data} />
                                 <SwapBox/>
                             </div>
                         }

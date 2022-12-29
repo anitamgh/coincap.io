@@ -59,6 +59,9 @@ const Style = styled.div `
                 svg{
                     width:20px;
                     margin: 0 0 -10px 5px;
+                    &.none{
+                        display:none;
+                    }
                     &.positive path{
                         fill:rgb(24, 198, 131);
                     }

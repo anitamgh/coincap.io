@@ -11,6 +11,17 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding:50px 0 0 0;
     font-family:Lato;
+    .holder{
+      display:none;
+    }
+    &.showSettings{
+      .holder{
+        display:block;
+      }
+    }
+    &.dark{
+      background-color: #000;
+    }
   }
   .container{
     max-width:1070px;

@@ -35,6 +35,9 @@ export default function Header(){
             setLoading(false)
         } 
     }
+    const settingsCover = () =>{
+        document.body.classList.add('showSettings')
+    }
     return(
         <Style>
             <div className="container">
@@ -121,7 +124,7 @@ export default function Header(){
                             </ul>
                         </div> 
 
-                        <img className="gearIcon" src="/assets/images/gear-solid.svg"/>
+                        <img onClick={settingsCover} className="gearIcon" src="/assets/images/gear-solid.svg"/>
                         <button>Connect Wallet</button>
                     </div>
                 </div>

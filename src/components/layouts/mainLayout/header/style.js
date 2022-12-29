@@ -92,6 +92,7 @@ const Style = styled.div `
             .gearIcon{
                 width:15px;
                 height:auto;
+                cursor:pointer;
             }
             .inputContainer{
                 position:relative;

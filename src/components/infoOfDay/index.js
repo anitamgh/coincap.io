@@ -17,7 +17,7 @@ export default function InfoOfDay({data , history , coinHistoryAsArray , changeP
         }
     )
     const priceFromArray  = coinHistoryAsArray.map(item => Number(item.priceUsd))
-    let sum = priceFromArray.reduce((a, b) => a + b, 0)
+    let sum = priceFromArray.reduce((a, b) => a + b)
     const average = sum/(coinHistoryAsArray.length)
     
     return(
